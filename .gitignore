@@ -1,0 +1,10 @@
+node_modules/
+.env
+.DS_Store
+*.log
+
+# 个人启动脚本（含个人 cloudflared 配置逻辑，不公开）
+start.sh
+
+# yt-dlp nightly 二进制（24MB，让用户自己下载）
+bin/

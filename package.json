@@ -1,0 +1,14 @@
+{
+  "name": "couple-watch",
+  "version": "0.1.0",
+  "description": "异地恋一起看视频的小播放器：URL 同步 + 投屏",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

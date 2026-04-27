@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoupleWatch · 一起看</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+
+  <!-- PIN 登录覆盖层 -->
+  <div id="auth-overlay" class="overlay">
+    <div class="auth-box">
+      <h1>🎬 CoupleWatch</h1>
+      <p class="muted">请输入 4 位房间 PIN</p>
+      <input type="text" id="pin-input" maxlength="4" placeholder="••••" inputmode="numeric" autocomplete="off">
+      <button id="pin-submit">进入房间</button>
+      <div id="pin-error" class="error"></div>
+    </div>
+  </div>
+
+  <!-- 主界面 -->
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <div class="title">🎬 CoupleWatch</div>
+      <div class="status">
+        <span id="me-info">--</span>
+        <span class="dot">·</span>
+        <span id="peer-info">独自一人</span>
+        <span class="dot">·</span>
+        <span id="role-badge" class="badge">观看</span>
+        <span class="dot">·</span>
+        <span id="conn-status" class="conn">连接中…</span>
+      </div>
+      <div class="actions">
+        <button id="claim-host" class="btn-ghost hidden">取得控制权</button>
+        <button id="rename-btn" class="btn-ghost">改名</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="player-area">
+        <div class="mode-tabs">
+          <button class="tab active" data-mode="video">📺 URL 同步</button>
+          <button class="tab" data-mode="screen">🖥 投屏</button>
+        </div>
+
+        <!-- URL 同步模式 -->
+        <div class="panel" id="panel-video">
+          <div class="url-bar">
+            <input type="text" id="url-input" placeholder="粘贴视频链接（YouTube / 各种盗版小站等）">
+            <button id="url-load">加载</button>
+            <span id="url-status" class="muted"></span>
+          </div>
+          <div class="video-wrap">
+            <video id="video" controls playsinline></video>
+            <div id="video-overlay" class="video-overlay hidden"></div>
+          </div>
+          <div id="video-title" class="muted"></div>
+        </div>
+
+        <!-- 投屏模式 -->
+        <div class="panel hidden" id="panel-screen">
+          <div class="screen-controls">
+            <button id="screen-start" class="primary">开始投屏（共享我的屏幕）</button>
+            <button id="screen-stop" class="hidden">停止投屏</button>
+            <span id="screen-status" class="muted">未在投屏</span>
+          </div>
+          <div class="video-wrap">
+            <video id="remote-video" autoplay playsinline controls></video>
+            <div id="screen-tip" class="video-overlay">
+              👋 投屏使用提示：<br><br>
+              · 想看 B 站 / 爱奇艺 / 腾讯视频？让国内一方点「开始投屏」<br>
+              · 想看 YouTube / Netflix？美国一方点「开始投屏」<br>
+              · macOS 用户：分享屏幕时勾选「分享标签页音频」才能传声音
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="chat-area">
+        <div class="chat-header">💬 聊天</div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <form class="chat-form" id="chat-form">
+          <input type="text" id="chat-input" placeholder="发条消息…" autocomplete="off">
+          <button type="submit">发送</button>
+        </form>
+      </aside>
+    </main>
+  </div>
+
+  <script src="/vendor/hls.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

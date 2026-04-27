@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         CoupleWatch Sender
-// @namespace    https://couplewatch.uk/
+// @namespace    https://github.com/JackyWilliam/couplewatch
 // @version      0.4.0
 // @description  在任何视频网站抓取 m3u8/mp4 流地址，一键发送到 CoupleWatch 让对方同步看
 // @author       CoupleWatch
